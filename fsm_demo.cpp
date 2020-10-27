@@ -41,7 +41,7 @@ private:
 	static StateOne* stateOne;
 
 public:
-	~StateOne() {};
+	~StateOne();
 	static StateOne* GetState();
 	void Handle(Fsm* fsm, int input) override;
 
@@ -55,7 +55,7 @@ private:
 	static StateTwo* stateTwo;
 
 public:
-	~StateTwo() {};
+	~StateTwo();
 	static StateTwo* GetState();
 	void Handle(Fsm* fsm, int input) override;
 
@@ -69,7 +69,7 @@ private:
 	static StateThree* stateThree;
 
 public:
-	~StateThree() {};
+	~StateThree();
 	static StateThree* GetState();
 	void Handle(Fsm* fsm, int input) override;
 
@@ -96,6 +96,11 @@ void Fsm::Handle(int input)
 }
 
 StateOne* StateOne::stateOne = NULL;
+StateOne::~StateOne()
+{
+	stateOne = NULL;
+}
+
 StateOne* StateOne::GetState()
 {
 	if (stateOne == NULL)
@@ -120,6 +125,11 @@ void StateOne::Handle(Fsm* fsm, int input)
 }
 
 StateTwo* StateTwo::stateTwo = NULL;
+StateTwo::~StateTwo()
+{
+	stateTwo = NULL;
+}
+
 StateTwo* StateTwo::GetState()
 {
 	if (stateTwo == NULL)
@@ -144,6 +154,11 @@ void StateTwo::Handle(Fsm* fsm, int input)
 }
 
 StateThree* StateThree::stateThree = NULL;
+StateThree::~StateThree()
+{
+	stateThree = NULL;
+}
+
 StateThree* StateThree::GetState()
 {
 	if (stateThree == NULL)
